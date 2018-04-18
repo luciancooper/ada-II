@@ -1,0 +1,186 @@
+#ID {
+	font-family: monospace;
+	/*font-size:12px;*/
+	max-height:400px!important;
+	overflow:scroll;
+	padding:5px;
+	background:transparent;
+}
+#ID div {
+	border:1px solid transparent!important;
+	background:transparent;
+	margin:5px;
+}
+#ID section {
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:flex-start;
+	justify-content:flex-start;
+	border:0px;
+	padding:0px;
+}
+#ID h3,
+#ID h4,
+#ID h5 {
+	padding:1px;
+}
+#ID h3,
+#ID h4 {
+	font-weight:bold;
+}
+#ID h4,
+#ID h5 {
+	margin:0px 0px 4px 0px;
+    text-align:left;
+}
+#ID h3 {
+	margin:1px;
+	text-align:center;
+}
+#ID h5 {
+	color:#5D5D5D;
+	font-style:normal;
+	font-weight:normal;
+}
+#ID table {
+	color: #3E4349;
+	/*font: normal normal normal 12px/10px "Courier New", monospace!important;*/
+	border-spacing:1px!important;
+    border-collapse:collapse!important;
+	font-size: 0.9em;
+	font-family:monospace;
+	border-style:solid;
+	border-color:grey;
+	border-width:0px;
+	margin:1px;
+	/*background: #FFF;
+    table-layout: fixed;*/
+}
+#ID table thead,
+#ID table tbody,
+#ID table tfoot,
+#ID table tr {
+	border-color: inherit;
+	border-style:inherit;
+	border-width:0px;
+}
+#ID table thead {
+	vertical-align: bottom;
+	border-bottom-width:1px;
+}
+#ID table tbody {
+    display: table-row-group;
+    vertical-align: middle;
+	overflow:scroll!important;
+	background:transparent!important;
+}
+#ID table tfoot {
+	border-top-width:2px;
+	border-top-color:black;
+}
+#ID table tr {
+    vertical-align: middle;
+    padding: 1px 0.5em;
+    line-height: normal;
+    white-space:pre!important;
+    max-width: none;
+	background:transparent!important;
+}
+
+#ID table th,
+#ID table td {
+	padding: 1px 0.5em;
+	white-space:pre!important;
+	max-width: none;
+	line-height: normal;
+	min-width:3px;
+	border-width:1px;
+	border-style:inherit;
+	border-color:inherit;
+	vertical-align:middle;
+	font-family: inherit;
+}
+#ID table td {
+	text-align: right;
+}
+#ID table th:empty,
+#ID table td:empty {
+	visibility: hidden;
+}
+#ID table tbody+tbody:before {
+	content:'...';
+	display:table-row;
+	line-height:10px;
+	text-align:center;
+}
+#ID table td.row-sep {
+	visibility:visible;
+	border:none;
+}
+#ID table td.row-sep:before {
+	content:'...';
+}
+#ID table tbody tr,
+#ID table tbody tr:hover,
+#ID table tbody tr:hover>*{
+    background: #FFF!important;
+}
+#ID table tr>th:last-of-type {
+	border-right-color:black;
+}
+#ID table th {
+	text-align: right;
+	font-weight: bold;
+}
+#ID table thead th,
+#ID table thead td {
+    text-align: center;
+    color:#FFF;
+    text-shadow:1px 1px rgba(0,0,0,1),0px 1px rgba(0,0,0,1),1px 0px rgba(0,0,0,1),-0.5px -0.5px rgba(0,0,0,1);
+}
+#ID table tbody td.grey {
+	background:#EBE8ED;
+}
+#ID table tbody td.light-grey {
+	background:#f3f1f4;
+}
+#ID table tbody th {
+	background:#E1F5FE;
+}
+#ID table thead th {
+	background:#95d1ff;
+}
+#ID table thead td {
+    background:#33a7ff;
+}
+#ID table tfoot td {
+    background:#F5F5F5;
+}
+#ID table tfoot th {
+    background:#d9d9d9;
+}
+#ID table.arrpy tbody th {
+	background:#D8BFD8;
+}
+#ID table.arrpy thead th {
+	background:#EE82EE;
+}
+#ID table.arrpy thead td {
+    background:#DA70D6;
+}
+#ID table.pandas tbody th {
+	background:#E1F5FE;
+}
+#ID table.pandas thead th {
+	background:#95d1ff;
+}
+#ID table.pandas thead td {
+    background:#33a7ff;
+}
+#ID table.numpy tbody th {
+	background:#EEEEFE;
+}
+#ID table.numpy tr>th:last-of-type {
+	border-right-color:grey;
+	margin-right:3px;
+}

@@ -1,5 +1,91 @@
 
 
+################################ [Sort] ################################################################
+
+def mergesort_algorithm(fn):
+    def wrapper(a):
+        """a must be array like"""
+        if len(a)<=1:return a
+        m = len(a)//2
+        return [*fn(wrapper(a[:m]),wrapper(a[m:]))]
+    return wrapper
+
+@mergesort_algorithm
+def sort(a,b):
+    i,j,x,y = 0,0,len(a),len(b)
+    while i<x and j<y:
+        if a[i] < b[j]:
+            yield a[i]
+            i=i+1
+        elif a[i] > b[j]:
+            yield b[j]
+            j=j+1
+        else:
+            yield a[i]
+            yield b[j]
+            i,j=i+1,j+1
+    while i < x:
+        yield a[i]
+        i=i+1
+    while j < y:
+        yield b[j]
+        j=j+1
+
+@mergesort_algorithm
+def sort_set(a,b):
+    i,j,x,y = 0,0,len(a),len(b)
+    while i<x and j<y:
+        if a[i] < b[j]:
+            yield a[i]
+            i=i+1
+        elif a[i] > b[j]:
+            yield b[j]
+            j=j+1
+        else:
+            yield a[i]
+            i,j=i+1,j+1
+    while i<x:
+        yield a[i]
+        i=i+1
+    while j < y:
+        yield b[j]
+        j=j+1
+
+################################ [Binary Search] ################################################################
+
+
+def bin_lower(a,value):
+    l,r = 0,len(a)
+    while l<r:
+        m=(l+r)//2
+        if value>a[m]:
+            l = m+1
+        else:
+            r = m
+    return
+
+def bin_upper(a,value):
+    l,r = 0,len(a)
+    while l<r:
+        m=(l+r)//2
+        if value<a[m]:
+            r = m
+        else:
+            l = m+1
+    return l
+
+def bin_index(a,value):
+    l,r = 0,len(a)
+    while l<r:
+        m=(l+r)//2
+        if value>a[m]:
+            l = m+1
+        elif value<a[m]:
+            r = m
+        else:
+            return m
+    return -1
+
 ################################ [Random] ################################################################
 
 import random

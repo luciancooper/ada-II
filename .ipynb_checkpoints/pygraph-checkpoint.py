@@ -22,7 +22,7 @@ def _scatter_grid(labels,figsize,pltsize):
     dim = len(labels)
     if figsize==None:
         figsize = tuple(dim*x for x in pltsize)
-    fig,axs = plt.subplots(dim,dim,figsize=figsize,squeeze=True,frameon=True)
+    fig,axs = plt.subplots(dim,dim,figsize=figsize,subplot_kw={'facecolor':'whitesmoke'},squeeze=True,frameon=True)
     for ax in (i for j in axs for i in j):
         ax.set_xticklabels([])
         ax.set_yticklabels([])

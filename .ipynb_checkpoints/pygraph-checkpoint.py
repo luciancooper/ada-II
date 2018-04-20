@@ -10,7 +10,8 @@ def axis_border(ax,color='black',width=1.5):
         spine.set_linewidth(width)
 
 def create_axis(w=4,h=4):
-    fig = plt.figure(figsize=(w,h),facecolor='lightgray',edgecolor='black')
+    #fig = plt.figure(figsize=(w,h),facecolor='lightgray',edgecolor='black')
+    fig = plt.figure(figsize=(w,h),edgecolor='black')
     ax = plt.axes()
     return fig,ax
 
@@ -24,7 +25,7 @@ def scatterplot_matrix(df,figsize=None,pltsize=(5,4),show=False):
         for j,ax in zip(col,axrow):
             if i==j:
                 ax.hist(df[i],bins=30,alpha=0.7,edgecolor='black',histtype='stepfilled')
-                ax.text(ax.get_xlim()[0],ax.get_ylim()[1],i)
+                #ax.text(ax.get_xlim()[0],ax.get_ylim()[1],i)
             else:
                 ax.scatter(df[j],df[i],s=10)
             ax.set_xticklabels([])

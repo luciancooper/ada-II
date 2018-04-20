@@ -39,6 +39,7 @@ def _grid_inxs(*dim):
             yield i,j
 
 def scatterplot_matrix(data,labels=None,facet_hue=None,figsize=None,pltsize=(5,4),show=False):
+    cpalette = "Set1"
     if type(data)==pd.DataFrame:
         if labels==None:
             labels=list(data.columns)
@@ -50,10 +51,11 @@ def scatterplot_matrix(data,labels=None,facet_hue=None,figsize=None,pltsize=(5,4
             data = data[labels].values
             groups = tuple(data[enc==i] for i in range(len(cat)))
             fig,axs = _scatter_grid(labels,figsize,pltsize)
-            colors = sns.color_palette("muted",n_colors=len(groups)).as_hex()
+            colors = sns.color_palette(cpalette,n_colors=len(groups)).as_hex()
             for i,j in _grid_inxs(len(labels)):
                 if i==j:
-                    axs[i][j].hist(data[:,i],bins=30,alpha=0.7,edgecolor='black',histtype='stepfilled')
+                    for g,color in zip(groups,colors):
+                        axs[i][j].hist(g[:,i],bins=30,alpha=0.3,color=color,edgecolor='black',histtype='stepfilled')
                     continue
                 for g,color in zip(groups,colors):
                     axs[i][j].scatter(g[:,j],g[:,i],s=10,c=color,alpha=0.6)
@@ -94,10 +96,11 @@ def scatterplot_matrix(data,labels=None,facet_hue=None,figsize=None,pltsize=(5,4
         if fh!=None:
             enc,cat = pd.Series(fh).factorize()
             groups = tuple(val[enc==i] for i in range(len(cat)))
-            colors = sns.color_palette("muted",n_colors=len(groups)).as_hex()
+            colors = sns.color_palette(cpalette,n_colors=len(groups)).as_hex()
             for i,j in _grid_inxs(len(labels)):
                 if i==j:
-                    axs[i][j].hist(val[:,i],bins=30,alpha=0.7,edgecolor='black',histtype='stepfilled')
+                    for g,color in zip(groups,colors):
+                        axs[i][j].hist(g[:,i],bins=30,alpha=0.3,color=color,edgecolor='black',histtype='stepfilled') 
                     continue
                 for g,color in zip(groups,colors):
                     axs[i][j].scatter(g[:,j],g[:,i],s=10,c=color)
